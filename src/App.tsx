@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { Component } from "react";
 import AppStore from "./AppStore";
 import { Box } from "./Components/Box";
+import { Text } from "./Components/Text";
 
 import HomePage from "./Pages/Home/Home";
 import NavBar from "./Pages/NavBar/NavBar";
@@ -36,13 +37,25 @@ export default class App extends Component<{}, State> {
     return (
       // <BrowserRouter>
       <Box>
-        <Box flex={1}>
+        <Box flex={1} style={{ position: "relative" }}>
           <AllContainer>
             <NavBar
               changeRoute={async (e: any) => await this.setState({ step: e })}
             />
             {this.state.step === "home" && <HomePage />}
           </AllContainer>
+          <Box
+            style={{
+              backgroundColor: "royalblue",
+              width: 50,
+              height: 50,
+              position: "absolute",
+              bottom: 5,
+              right: 10,
+            }}
+          >
+            V
+          </Box>
         </Box>
       </Box>
       // </BrowserRouter>
