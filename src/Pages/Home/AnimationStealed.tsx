@@ -42,8 +42,6 @@ export default class AnimationStealed extends Component<{}, State> {
   };
 
   render() {
-    console.log("render");
-    console.log(this.state.inActionText);
     return (
       <Box p={46}>
         <MainText>BOOST THE</MainText>

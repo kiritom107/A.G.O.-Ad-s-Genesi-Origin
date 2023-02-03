@@ -162,7 +162,6 @@ body {
     content: '';
     height: 2px;
     background-color:red;
-
     left: 0;
     width: 100%;
     transform: translateX(100%);

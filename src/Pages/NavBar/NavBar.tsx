@@ -2,14 +2,11 @@ import { Component } from "react";
 import { Box } from "../../Components/Box";
 import { Text } from "../../Components/Text";
 
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/all";
 import "./NavBar.css";
 
 import styled from "@emotion/styled";
-import { NavBarOptions } from "../../Mock/MockData";
-import { NavBarOption } from "../../Types/NavBarOption";
 import { Button } from "../../Components/Button";
+import Modal from "../../Components/Modal/Modal";
 
 interface Props {
   changeRoute: any;
@@ -17,30 +14,45 @@ interface Props {
 
 interface State {
   route: string;
-  NavBarOptions: NavBarOption[];
+
   selectedOption: string;
+  onOpenModal: boolean;
 }
 
 export default class NavBar extends Component<Props> {
   state: State = {
     route: "home",
-    NavBarOptions: NavBarOptions.navBarOptions, //dati mokati
+
     selectedOption: "Home",
+    onOpenModal: false,
   };
 
   componentDidMount(): void {}
 
+  openRegisterModal = () => {};
+
   render() {
-    console.log(this.state.NavBarOptions);
+    const { onOpenModal } = this.state;
+    console.log(onOpenModal);
     return (
       <Box mt={20} vcenter>
         <Box row>
           <OfficialLogo></OfficialLogo>
           <LogoText>Nome azieda</LogoText>
           <BoxLogIN row flex={1} justify="flex-end">
-            <Button>Registrati/loging</Button>
+            <Button
+              onClick={() => this.setState({ onOpenModal: !onOpenModal })}
+            >
+              Registrati/login
+            </Button>
           </BoxLogIN>
         </Box>
+        <Modal
+          show={onOpenModal}
+          handleClose={() => this.setState({ onOpenModal: !onOpenModal })}
+        >
+          <p>Modal</p>
+        </Modal>
       </Box>
     );
   }

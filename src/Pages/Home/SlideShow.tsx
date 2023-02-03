@@ -40,7 +40,6 @@ export default class SlideShow extends Component {
     //do only if the imgContainer is updated
 
     if (imgContainer) {
-      console.log("dio è vivo");
       gsap.to(imgContainer[succseveImg], { x: -1000, duration: 1 });
       setTimeout(() => {
         gsap.to(imgContainer[actualImg], {
@@ -170,7 +169,7 @@ const FullContainerImg = styled.img`
   object-fit: cover;
 `;
 const SlideShown = styled(Box)`
-  z-index: 99999;
+  z-index: 100;
   /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   padding: 20px;
   width: 80vw;
