@@ -7,6 +7,8 @@ import "./NavBar.css";
 import styled from "@emotion/styled";
 import { Button } from "../../Components/Button";
 import Modal from "../../Components/Modal/Modal";
+import LogIn from "./LogIn";
+import Logo from "./Assets/imgLogo.png";
 
 interface Props {
   changeRoute: any;
@@ -37,26 +39,46 @@ export default class NavBar extends Component<Props> {
     return (
       <Box mt={20} vcenter>
         <Box row>
-          <OfficialLogo></OfficialLogo>
-          <LogoText>Nome azieda</LogoText>
+          <OfficialLogo>
+            <img
+              unselectable="on"
+              style={{ borderRadius: "50%" }}
+              src={Logo}
+              alt="Logo"
+            />
+          </OfficialLogo>
+          <LogoText>A.G.O. Ad's Genesi Origin</LogoText>
           <BoxLogIN row flex={1} justify="flex-end">
-            <Button
+            <Registrati
               onClick={() => this.setState({ onOpenModal: !onOpenModal })}
             >
-              Registrati/login
-            </Button>
+              <Text style={{ color: "white", fontSize: 20 }}>
+                Registrati/login
+              </Text>
+            </Registrati>
           </BoxLogIN>
         </Box>
         <Modal
           show={onOpenModal}
           handleClose={() => this.setState({ onOpenModal: !onOpenModal })}
         >
-          <p>Modal</p>
+          <LogIn type="Login" options={["Email", "Password"]} />
         </Modal>
       </Box>
     );
   }
 }
+
+const Registrati = styled(Button)`
+  position: relative;
+  margin-right: 30px;
+  width: 190px;
+  //royal bluw backgroud and on hover lightblue
+  background-color: #4169e1;
+  &:hover {
+    background-color: #87cefa;
+  }
+`;
 
 const BoxLogIN = styled(Box)`
   position: relative;
@@ -71,9 +93,9 @@ const LogoText = styled(Text)`
 `;
 
 const OfficialLogo = styled(Box)`
-  background-color: #5967c0 !important;
   position: relative;
   margin-left: 30px;
   width: 80px;
   height: 70px;
+  border-radius: 50%;
 `;

@@ -96,7 +96,7 @@ const FirstContainer = styled(Box)`
 const CompanyLogIn = styled(Box)`
   width: 40vw;
   height: 20vh;
-  background-color: rosybrown;
+  /* background-color: rosybrown; */
 `;
 const Slogan = styled(Box)`
   width: 40vw;

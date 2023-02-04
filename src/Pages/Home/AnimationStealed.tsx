@@ -66,7 +66,7 @@ const BoxHideText = styled(Box)`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: royalblue;
+  /* background-color: royalblue; */
 `;
 
 //make a box line 4 px

@@ -5,12 +5,8 @@ const Modal = ({ handleClose, show, children }) => {
 
   return (
     <div className={showHideClassName} onClick={() => handleClose()}>
-      <section className="modal-main">
+      <section style={{ zIndex: 1000 }} className="modal-main">
         {children}
-
-        <button type="button" onClick={handleClose}>
-          Close
-        </button>
       </section>
     </div>
   );

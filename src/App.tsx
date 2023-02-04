@@ -46,7 +46,7 @@ export default class App extends Component<{}, State> {
           </AllContainer>
           <Box
             style={{
-              backgroundColor: "royalblue",
+              // backgroundColor: "royalblue",
               width: 50,
               height: 50,
               position: "absolute",
