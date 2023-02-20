@@ -61,8 +61,8 @@ export default class Modal extends Component<Props> {
 const CloseIcon = styled(Box)`
   z-index: 9999;
   background-color: lightgrey;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   position: absolute;
   top: 0;
   right: -46px;
