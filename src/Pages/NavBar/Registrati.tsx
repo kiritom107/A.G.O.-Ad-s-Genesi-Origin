@@ -1,9 +1,11 @@
 import styled from "@emotion/styled";
 import { Button, Input } from "antd";
 import React, { Component } from "react";
+import NavAnimation from "../../Animations/NavBarAnimations";
 import { Box } from "../../Components/Box";
 import { Text } from "../../Components/Text";
 import { LottieFinance } from "./Assets/LottieFinance";
+import { LottieGrafs } from "./Assets/LottieGrafs";
 import BasicLogInInput from "./BasicLogInInput";
 
 interface Props {
@@ -22,6 +24,7 @@ interface State {
   mailConfirm: string;
   passwordConfirm: string;
   step: number;
+  selectedLottie: number;
 }
 export default class Registrati extends Component<Props, State> {
   state: State = {
@@ -34,6 +37,7 @@ export default class Registrati extends Component<Props, State> {
     mail: "",
     mailConfirm: "",
     passwordConfirm: "",
+    selectedLottie: 0,
   };
   render() {
     const { type, options } = this.props;
@@ -53,8 +57,13 @@ export default class Registrati extends Component<Props, State> {
           }}
           center
         >
-          <Box style={{ maxWidth: 350, maxHeight: 350 }}>
-            <LottieFinance />
+          <Box style={{ maxWidth: 350, maxHeight: 350, position: "relative" }}>
+            <Box id={"lottie-0"}>
+              <LottieFinance show={this.state.step === 0} />
+            </Box>
+            <Box id={"lottie-1"}>
+              <LottieGrafs show={this.state.step === 1} />
+            </Box>
           </Box>
         </Box>
         <Box
