@@ -3,6 +3,7 @@ import { Button, Input } from "antd";
 import React, { Component } from "react";
 import { Box } from "../../Components/Box";
 import { Text } from "../../Components/Text";
+import { LottieFinance } from "./Assets/LottieFinance";
 import BasicLogInInput from "./BasicLogInInput";
 
 interface Props {
@@ -50,7 +51,12 @@ export default class Registrati extends Component<Props, State> {
             minHeight: "100%",
             backgroundColor: "blueviolet",
           }}
-        ></Box>
+          center
+        >
+          <Box style={{ maxWidth: 350, maxHeight: 350 }}>
+            <LottieFinance />
+          </Box>
+        </Box>
         <Box
           flex
           style={{
@@ -227,7 +233,7 @@ export default class Registrati extends Component<Props, State> {
                       }
                     }}
                   >
-                    Next Step Boii{" "}
+                    Procedi
                   </SecondaryText>
                 </Box>
               </Box>
@@ -290,7 +296,7 @@ const Circle = styled(Box)<{ color: string }>`
 
 const SecondaryText = styled(Text)`
   font-size: 18px !important;
-  color: #000000 !important;
+  color: white !important;
   font-weight: 700;
   margin: 0 !important;
   padding: 0 !important;

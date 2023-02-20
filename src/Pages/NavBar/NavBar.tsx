@@ -85,7 +85,7 @@ export default class NavBar extends Component<Props> {
           }
           styleInternal={{
             width: "66vw",
-            height: "80vh",
+            height: "87vh",
             backgroundColor: "white",
           }}
         >
