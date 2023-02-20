@@ -161,7 +161,7 @@ body {
         display: block;
     content: '';
     height: 2px;
-    background-color:red;
+    background-color:blue;
     left: 0;
     width: 100%;
     transform: translateX(100%);
@@ -209,4 +209,97 @@ body {
 
 .ant-select-arrow{
     display: none;
+}
+
+
+
+.ant-input{
+
+    border: none;
+    border-bottom: 1px solid #000;
+    border-radius: 0;
+    background: transparent;
+    color: #000;
+
+
+
+
+    height: 40px;
+    min-width: 80%;
+    padding: 0 10px;
+    margin: 0 0 10px 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.ant-input:focus{
+
+    outline: none;
+}
+.ant-input::placeholder {
+    color: #000;
+    opacity: 0.4;
+}@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.button {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-decoration: none;
+    width: 300px;
+    height: 40px;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 2em;
+    padding: 0.75em 1em;
+    color: royalblue;
+
+    border: 0.15em solid #333;
+    border-radius: calc(0.75em + 0.5em + 0.15em);
+    transition: 1s;
+}
+
+.button:before,
+.button:after {
+    content: '';
+    position: absolute;
+    top: -1.5em;
+    z-index: -1;
+    width: 200%;
+    aspect-ratio: 1;
+    border: none;
+    border-radius: 40%;
+    background-color: rgba(120,81,169, 0.25);
+    transition: 4s;
+}
+
+.button:before {
+    left: -80%;
+    transform: translate3d(0, 5em, 0) rotate(-340deg);
+}
+
+.button:after {
+    right: -80%;
+    transform: translate3d(0, 5em, 0) rotate(390deg);
+}
+
+.button:hover,
+.button:focus {
+    color: royalblue;
+}
+
+.button:hover:before,
+.button:hover:after,
+.button:focus:before,
+.button:focus:after {
+    transform: none;
+    background-color: rgba(120,81,169, 0.75);
 }

@@ -10,8 +10,8 @@ interface State {
 }
 export default class AnimationStealed extends Component<{}, State> {
   state: State = {
-    texts: ["BOOST THE", "CAPABILITIES", "OF YOUR", "TEAM"],
-    inActionText: "BOOST THE",
+    texts: ["Company", "Agenzy", "Future marketing"],
+    inActionText: "Company",
   };
 
   componentDidMount(): void {
@@ -34,14 +34,24 @@ export default class AnimationStealed extends Component<{}, State> {
       ease: "power2.inOut",
     });
 
+    tl.call(() => {
+      //go to next text
+      console.log("son in");
+      setTimeout(() => {
+        const { texts, inActionText } = this.state;
+        const index = texts.indexOf(inActionText);
+        if (index === texts.length - 1) {
+          this.setState({ inActionText: texts[0] });
+        }
+        this.setState({ inActionText: texts[index + 1] });
+      }, 1000);
+    });
+
     await tl.play();
-    setTimeout(async () => {
-      this.setState({ inActionText: "Dio beulo" });
-      await this.animationGsap();
-    }, 8000);
   };
 
   render() {
+    console.log(this.state.inActionText);
     return (
       <Box p={46}>
         <MainText>BOOST THE</MainText>
@@ -66,7 +76,7 @@ const BoxHideText = styled(Box)`
   left: 0;
   width: 100%;
   height: 100%;
-  /* background-color: royalblue; */
+  background-color: royalblue;
 `;
 
 //make a box line 4 px
@@ -86,7 +96,7 @@ const MainText = styled(Text)`
 `;
 
 const AnimationText = styled(Text)`
-  font-size: 60px !important;
+  font-size: 54px !important;
   color: orange !important;
   padding: 0;
   margin: 0;

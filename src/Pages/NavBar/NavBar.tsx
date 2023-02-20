@@ -9,6 +9,7 @@ import { Button } from "../../Components/Button";
 import Modal from "../../Components/Modal/Modal";
 import LogIn from "./LogIn";
 import Logo from "./Assets/imgLogo.png";
+import Registrati from "./Registrati";
 
 interface Props {
   changeRoute: any;
@@ -16,17 +17,17 @@ interface Props {
 
 interface State {
   route: string;
-
   selectedOption: string;
-  onOpenModal: boolean;
+  openLogInModal: boolean;
+  openRegisterModal: boolean;
 }
 
 export default class NavBar extends Component<Props> {
   state: State = {
     route: "home",
-
     selectedOption: "Home",
-    onOpenModal: false,
+    openLogInModal: false,
+    openRegisterModal: false,
   };
 
   componentDidMount(): void {}
@@ -34,8 +35,8 @@ export default class NavBar extends Component<Props> {
   openRegisterModal = () => {};
 
   render() {
-    const { onOpenModal } = this.state;
-    console.log(onOpenModal);
+    const { openLogInModal, openRegisterModal } = this.state;
+    console.log(openLogInModal);
     return (
       <Box mt={20} vcenter>
         <Box row>
@@ -49,27 +50,62 @@ export default class NavBar extends Component<Props> {
           </OfficialLogo>
           <LogoText>A.G.O. Ad's Genesi Origin</LogoText>
           <BoxLogIN row flex={1} justify="flex-end">
-            <Registrati
-              onClick={() => this.setState({ onOpenModal: !onOpenModal })}
+            <RegistratI
+              onClick={() => this.setState({ openLogInModal: !openLogInModal })}
             >
               <Text style={{ color: "white", fontSize: 20 }}>
-                Registrati/login
+                RegistratI/login
               </Text>
-            </Registrati>
+            </RegistratI>
           </BoxLogIN>
         </Box>
         <Modal
-          show={onOpenModal}
-          handleClose={() => this.setState({ onOpenModal: !onOpenModal })}
+          show={openLogInModal}
+          handleClose={() => this.setState({ openLogInModal: !openLogInModal })}
+          styleInternal={{
+            width: "33vw",
+            height: "80vh",
+            backgroundColor: "white",
+          }}
         >
-          <LogIn type="Login" options={["Email", "Password"]} />
+          <LogIn
+            type="Login"
+            options={["Email", "Password"]}
+            onClose={() => this.setState({ openLogInModal: !openLogInModal })}
+            goOnRegister={() =>
+              this.setState({ openRegisterModal: !openRegisterModal })
+            }
+          />
+        </Modal>
+        {/* modal regitrati */}
+        <Modal
+          show={openRegisterModal}
+          handleClose={() =>
+            this.setState({ openRegisterModal: !openRegisterModal })
+          }
+          styleInternal={{
+            width: "66vw",
+            height: "80vh",
+            backgroundColor: "white",
+          }}
+        >
+          <Registrati
+            type="Registati"
+            closeModal={() =>
+              this.setState({
+                openRegisterModal: !openRegisterModal,
+                openLogInModal: !openLogInModal,
+              })
+            }
+            options={["Email", "Password"]}
+          />
         </Modal>
       </Box>
     );
   }
 }
 
-const Registrati = styled(Button)`
+const RegistratI = styled(Button)`
   position: relative;
   margin-right: 30px;
   width: 190px;

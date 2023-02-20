@@ -1,10 +1,8 @@
 import styled from "@emotion/styled";
 import { Component } from "react";
-import AppStore from "./AppStore";
 import { Box } from "./Components/Box";
-import { Text } from "./Components/Text";
-
 import HomePage from "./Pages/Home/Home";
+
 import NavBar from "./Pages/NavBar/NavBar";
 
 interface State {
@@ -58,7 +56,6 @@ export default class App extends Component<{}, State> {
           </Box>
         </Box>
       </Box>
-      // </BrowserRouter>
     );
   }
 }
@@ -69,7 +66,7 @@ const AllContainer = styled(Box)`
    */
 
   border-radius: 0;
-  background-color: lightgreen;
+  background-color: lightsalmon;
 
   height: 100vh;
   width: 100vw;
